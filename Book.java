@@ -75,6 +75,6 @@ public class Book {
      * @return a string representation of object
      */
     @Override public String toString(){
-        return "Title: " + getTitle() + ", Author" + getAuthor() + " " + super.toString();
+        return "Title: " + getTitle() + ", Author: " + getAuthor() + ", Publisher: " + getPublisher() + ", ISBN: " + getISBN();
     }
 }
