@@ -1,0 +1,39 @@
+We have split the project into three main tasks for each of us to complete:
+
+Task 1. (Alex Anderson) 
+Write the classes, interfaces, enums, and main() function that displays a menu-driven command-line interface (CLI) 
+that prompts user for book name to search, displays results of search, allows user to select a result to find nearest libraries,
+displays nearest libraries, and then starts a new search
+
+Code mapped out/created thus far for task:
+- BookSearchCLI class... the interactive menu-driven command line interface (CLI) for the user to search for books
+- Book class... stores book user is searching for and includes title, author, ISBN, publisher, and genre (all identifiers for specific book)
+- Library class... stores list of books within the library, contains all data including Location
+- Location class... stores locations of libraries within given radius/area user inputs
+- Result class... abstract class that the other Results extend
+- Search class... abstract class which the other Requests extend
+- BookSearchRequest class... is the request to be sent to the library search API
+- BookSearchResult class... represents a result returned by the library search API
+- LibraryGeoRequest class... is a request sent to Google Map/Location API 
+- LibraryGeoResult class... represents a result returned by the request sent to Google Map/Location API
+
+Task 2. (Alissa Wells)
+Write classes, interfaces, and enums to call library site(s) API(s) to search for books and return results
+
+Have begun stepping through the process of creating a web scrapper for the FCPL website to collect the necessary information to have our user conduct a search. 
+Have explored the FCPL website and become familiar with how it is structured and how it conducts search queries. Have started writing code to scrape the web site, as seen in the class "Library_Search.java". 
+Will continue to work on this class and others as necessary to get the necessary information
+
+Task 3. (Yash Ganganaboina)
+Write classes, interfaces, and enums to call Google geosearch API for libraries within a given distance and return results: 
+
+I have not fully completed 
+this section, but me and AJ have begun collaborating on integrating the APIs and also allowing users to input values in the Command Prompt to navigate through
+the app. 
+
+**We are still in the early stages of our project but the basis of our project is to create an application that
+allows users to search within our application for a library book. When the user searches for the book our 
+application will populate the location of the library branch that the book is at, as well as the details of the book
+(such as title, genre, author, publisher, ISBN) etc. All of these details of the book will be able to be searched
+by the user to look up the specific book. As well, we will have a capability where the user will be able to specify
+the miles/radius they are willing to travel to narrow down the search for their book
