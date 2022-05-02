@@ -60,10 +60,16 @@ public class BookSearchCLI {
     }
 
     public static int displayMenu(){
+        int item;
         System.out.println("1. Search by title");
         System.out.println("2. Search by author");
         System.out.println("3. Search by ISBN");
-        System.out.println("4. Exit");
+        System.out.println("0. Exit");
+        System.out.println("Choose from the options listed below (1-4): ");
+        Scanner input = new Scanner(System.in);
+        item = input.nextInt();
+        input.close();
+        return item;
     }
 
     private displayResults(){
@@ -71,14 +77,11 @@ public class BookSearchCLI {
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
         boolean exit = false;
         int item;
 
         do{
-            displayMenu();
-            System.out.println("Choose from the options listed below (1-4): ");
-            item = input.nextInt();
+            item = displayMenu();
 
             switch(item){
                 case 1:
@@ -90,7 +93,7 @@ public class BookSearchCLI {
                 case 3:
                     System.out.println("You chose to search by ISBN.");
                     break;
-                case 4: 
+                case 0: 
                     System.out.println("You chose to exit.");
                     exit = true;
                     break;
