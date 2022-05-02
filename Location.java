@@ -5,10 +5,10 @@ public class Location {
     String state;
     String country;
     String zipCode;
-    float latitude;
-    float longitude;
+    double latitude;
+    double longitude;
 
-    public Location(String placeName, String streetAddress, String city, String state, String country, String zipCode, float latitude, float longitude){
+    public Location(String placeName, String streetAddress, String city, String state, String country, String zipCode, double latitude, double longitude){
         setPlaceName(placeName);
         setStreetAddress(streetAddress);
         setCity(city);
@@ -67,19 +67,19 @@ public class Location {
         return this.zipCode;
     }
 
-    public void setLatitude(float latitude){
+    public void setLatitude(double latitude){
         this.latitude = latitude;
     }
 
-    public float getLatitude(){
+    public double getLatitude(){
         return this.latitude;
     }
 
-    public void setLongitude(float longitude){
+    public void setLongitude(double longitude){
         this.longitude = longitude;
     }
 
-    public float getLongitude(){
+    public double getLongitude(){
         return this.longitude;
     }
 
@@ -88,6 +88,7 @@ public class Location {
     }
 
     public static void main(String[] args) {
-        Location l = new Location("George Mason University", streetAddress, city, state, country, zipCode, latitude, longitude)
+        Location l = new Location("George Mason University", "4400 University Drive", "Fairfax", "VA", "USA", "22030", 38.834720 , -77.312680);
+        l.toString();
     }
 }
