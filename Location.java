@@ -15,14 +15,14 @@ public class Location {
 
     /**
      * Location() constructor
-     * @param placeName
-     * @param streetAddress
-     * @param city
-     * @param state
-     * @param country
-     * @param zipCode
-     * @param latitude
-     * @param longitude
+     * @param placeName name of user's location/place
+     * @param streetAddress street address of user
+     * @param city city of user
+     * @param state state of user
+     * @param country country of user
+     * @param zipCode zip code of user
+     * @param latitude latitude of location user
+     * @param longitude longitude of location of user
      * initializes class member variables using encapsulation
      */
     public Location(String placeName, String streetAddress, String city, String state, String country, String zipCode, double latitude, double longitude){
