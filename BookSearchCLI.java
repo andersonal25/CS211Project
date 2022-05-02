@@ -1,19 +1,58 @@
 import java.util.Scanner;
 
-import javax.sound.midi.Soundbank;
-import javax.sound.sampled.SourceDataLine;
 public class BookSearchCLI {
 
-    public String searchByTitle(String title){
+    public List<Book> searchByTitle(String title){
 
     }
 
-    public String searchByAuthor(String author){
+    public List<Book> searchByAuthor(String author){
 
     }
 
-    public String searchByISBN(String ISBN){
+    public List<Book> searchByISBN(String ISBN){
 
+    }
+
+    /**
+     * promptInput() method
+     * prompts user to enter field param
+     * @param field
+     * @return the String
+     */
+    public String promptInput(String field){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please enter the " + field + "to search: ");
+        String searchCriteria = input.nextLine();
+        input.close();
+        return searchCriteria;
+    }
+
+    /**
+     * getTitle() method
+     * calls promptInput() for title
+     * @return the String
+     */
+    public String getTitle(){
+        return promptInput("title");
+    }
+
+    /**
+     * getAuthor() method
+     * calls promptInput() for author
+     * @return the String
+     */
+    public String getAuthor(){
+        return promptInput("author");
+    }
+
+    /**
+     * getISBN() method
+     * calls promptInput() for ISBN
+     * @return the String
+     */
+    public String getISBN(){
+        return promptInput("ISBN");
     }
 
     public String search(String title, String author, String ISBN){
