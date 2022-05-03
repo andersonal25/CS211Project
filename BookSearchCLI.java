@@ -2,18 +2,40 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * BookSearchCLI class
+ * command line interface for the user to search for books at various libraries
+ */
 public class BookSearchCLI {
 
+    /**
+     * searchByTitle() class
+     * for if user wants to search by title
+     * @param title
+     * @return search results
+     */
     public static List<BookSearchResult> searchByTitle(String title){
         ArrayList<BookSearchResult>results = new ArrayList<>();
         return results;
     }
 
+    /**
+     * searchByAuthor() method
+     * for if user wants to search by author
+     * @param author
+     * @return search results
+     */
     public static List<BookSearchResult> searchByAuthor(String author){
         ArrayList<BookSearchResult>results = new ArrayList<>();
         return results;
     }
 
+    /**
+     * searchByISBN() method
+     * for is user wants to search by ISBN
+     * @param ISBN
+     * @return search results
+     */
     public static List<BookSearchResult> searchByISBN(String ISBN){
         ArrayList<BookSearchResult>results = new ArrayList<>();
         return results;
@@ -60,6 +82,11 @@ public class BookSearchCLI {
         return promptInput("ISBN");
     }
 
+    /**
+     * displayMenu() method
+     * displays the menu options for the user to choose from
+     * @return the item the user chooses
+     */
     public static int displayMenu(){
         int item;
         System.out.println("1. Search by title");
@@ -73,6 +100,10 @@ public class BookSearchCLI {
         return item;
     }
 
+    /**
+     * main() method
+     * @param args
+     */
     public static void main(String[] args) {
         boolean exit = false;
         int item;
