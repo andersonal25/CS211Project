@@ -1,17 +1,22 @@
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class BookSearchCLI {
 
-    public List<Book> searchByTitle(String title){
-
+    public static List<BookSearchResult> searchByTitle(String title){
+        ArrayList<BookSearchResult>results = new ArrayList<>();
+        return results;
     }
 
-    public List<Book> searchByAuthor(String author){
-
+    public static List<BookSearchResult> searchByAuthor(String author){
+        ArrayList<BookSearchResult>results = new ArrayList<>();
+        return results;
     }
 
-    public List<Book> searchByISBN(String ISBN){
-
+    public static List<BookSearchResult> searchByISBN(String ISBN){
+        ArrayList<BookSearchResult>results = new ArrayList<>();
+        return results;
     }
 
     /**
@@ -20,7 +25,7 @@ public class BookSearchCLI {
      * @param field
      * @return the String
      */
-    public String promptInput(String field){
+    public static String promptInput(String field){
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter the " + field + "to search: ");
         String searchCriteria = input.nextLine();
@@ -33,7 +38,7 @@ public class BookSearchCLI {
      * calls promptInput() for title
      * @return the String
      */
-    public String getTitle(){
+    public static String inputTitle(){
         return promptInput("title");
     }
 
@@ -42,7 +47,7 @@ public class BookSearchCLI {
      * calls promptInput() for author
      * @return the String
      */
-    public String getAuthor(){
+    public static String inputAuthor(){
         return promptInput("author");
     }
 
@@ -51,12 +56,8 @@ public class BookSearchCLI {
      * calls promptInput() for ISBN
      * @return the String
      */
-    public String getISBN(){
+    public static String inputISBN(){
         return promptInput("ISBN");
-    }
-
-    public String search(String title, String author, String ISBN){
-
     }
 
     public static int displayMenu(){
@@ -72,10 +73,6 @@ public class BookSearchCLI {
         return item;
     }
 
-    private displayResults(){
-        
-    }
-
     public static void main(String[] args) {
         boolean exit = false;
         int item;
@@ -83,15 +80,20 @@ public class BookSearchCLI {
         do{
             item = displayMenu();
 
+            List<BookSearchResult>results = null;
+
             switch(item){
                 case 1:
                     System.out.println("You chose to search by title.");
+                    results = BookSearchCLI.searchByTitle(BookSearchCLI.inputTitle());
                     break;
                 case 2:
                     System.out.println("You chose to search by author.");
+                    results = BookSearchCLI.searchByAuthor(BookSearchCLI.inputAuthor());
                     break;
                 case 3:
                     System.out.println("You chose to search by ISBN.");
+                    results = BookSearchCLI.searchByISBN(BookSearchCLI.inputISBN());
                     break;
                 case 0: 
                     System.out.println("You chose to exit.");

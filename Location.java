@@ -1,28 +1,28 @@
 /**
  * Location class
- * represents location of user
+ * represents location of the library
  * contains toString() method
  */
 public class Location {
-    String placeName; // name of user's location/place
-    String streetAddress; // street address of user
-    String city; // city of user
-    String state; // state of user
-    String country; // country of user
-    String zipCode; // zip code of user
-    double latitude; // latitude of location user
-    double longitude; // longitude of location of user
+    String placeName; // name of library's location/place
+    String streetAddress; // street address of library
+    String city; // city of library
+    String state; // state of library
+    String country; // country of library
+    String zipCode; // zip code of library
+    double latitude; // latitude of location library
+    double longitude; // longitude of location of library
 
     /**
      * Location() constructor
-     * @param placeName name of user's location/place
-     * @param streetAddress street address of user
-     * @param city city of user
-     * @param state state of user
-     * @param country country of user
-     * @param zipCode zip code of user
-     * @param latitude latitude of location user
-     * @param longitude longitude of location of user
+     * @param placeName name of library's location/place
+     * @param streetAddress street address of library
+     * @param city city of library
+     * @param state state of library
+     * @param country country of library
+     * @param zipCode zip code of library
+     * @param latitude latitude of location library
+     * @param longitude longitude of location of library
      * initializes class member variables using encapsulation
      */
     public Location(String placeName, String streetAddress, String city, String state, String country, String zipCode, double latitude, double longitude){

@@ -1,3 +1,3 @@
-public class BookSearchRequest {
+public class BookSearchRequest extends SearchRequest {
     
 }

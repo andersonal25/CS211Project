@@ -1,3 +1,3 @@
-public class LibraryGeoRequest {
+public class LibraryGeoRequest extends SearchRequest{
     
 }
