@@ -1,6 +1,6 @@
 /**
  * Book class
- * represents books searched for by user
+ * represents books searched for by the user
  */
 public class Book {
     private String isbn; // string representing the isbn of this media item
