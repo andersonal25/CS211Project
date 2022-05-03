@@ -77,4 +77,13 @@ public class Book {
     @Override public String toString(){
         return "Title: " + getTitle() + ", Author: " + getAuthor() + ", Publisher: " + getPublisher() + ", ISBN: " + getISBN();
     }
+
+    /**
+     * main() method
+     * @param args
+     */
+    public static void main(String[] args) {
+        Book book = new Book("9780547249643", "Fiction", "George Orwell", "1984", "San Diego: Harcourt Brace Jovanovich");
+        System.out.println(book.toString());
+    }
 }
