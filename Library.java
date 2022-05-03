@@ -3,8 +3,8 @@
  * represents libraries in surrounding area that contain book
  */
 public class Library {
-    String name; // library name
-    Location location; // library location
+    private String name; // library name
+    private Location location; // library location
 
     /**
      * Library() one arg constructor
@@ -69,7 +69,7 @@ public class Library {
     @Override public String toString(){
         return "Library Name: " + getName() + ", Library Location: " + getLocation().toString();
     }
-    
+
     /**
      * main() method
      * creates Location and Library instance and calls toString() method on Library instance

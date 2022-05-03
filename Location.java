@@ -4,14 +4,14 @@
  * contains toString() method
  */
 public class Location {
-    String placeName; // name of library's location/place
-    String streetAddress; // street address of library
-    String city; // city of library
-    String state; // state of library
-    String country; // country of library
-    String zipCode; // zip code of library
-    double latitude; // latitude of location library
-    double longitude; // longitude of location of library
+    private String placeName; // name of library's location/place
+    private String streetAddress; // street address of library
+    private String city; // city of library
+    private String state; // state of library
+    private String country; // country of library
+    private String zipCode; // zip code of library
+    private double latitude; // latitude of location library
+    private double longitude; // longitude of location of library
 
     /**
      * Location() constructor
@@ -184,8 +184,8 @@ public class Location {
      * toString() method
      * @return concatenated string of user's location
      */
-    public String toString(){
-        return getPlaceName() + " " + getStreetAddress() + " " + getCity() + " " +  getState() + " " + getZipCode() + " " + getCountry() + " " + getLatitude() + " " + getLongitude();
+    @Override public String toString(){
+        return getPlaceName() + ", " + getStreetAddress() + ", " + getCity() + ", " +  getState() + " " + getZipCode() + " " + getCountry() + " " + getLatitude() + " " + getLongitude();
     }
 
     /**
@@ -195,6 +195,6 @@ public class Location {
      */
     public static void main(String[] args) {
         Location l = new Location("George Mason University", "4400 University Drive", "Fairfax", "VA", "USA", "22030", 38.834720 , -77.312680);
-        l.toString();
+        System.out.println(l.toString());
     }
 }
