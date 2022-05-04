@@ -16,6 +16,9 @@ public class BookSearchCLI {
      */
     public static List<BookSearchResult> searchByTitle(String title){
         ArrayList<BookSearchResult>results = new ArrayList<>();
+        LibrarySearch searcher = new LibrarySearch();
+        searcher.searchBooks();
+        //BookSearchRequest bookSearchRequest = new BookSearchRequest(title);
         return results;
     }
 

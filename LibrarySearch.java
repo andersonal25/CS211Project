@@ -1,4 +1,18 @@
+import java.util.List;
+/**
+ * LibrarySearch class
+ */
 public class LibrarySearch {
+
+
+    /**
+     * LibrarySearch() no arg constructor
+     * 
+     */
+    public LibrarySearch(){
+        
+    }
+
     // Define the search term
     String searchQuery = "harry potter and the goblet of fire";
 
@@ -11,9 +25,15 @@ public class LibrarySearch {
     String searchUrl = "https://fcplcat.fairfaxcounty.gov/search/searchresults.aspx?ctx=1.1033.0.0.1&type=Keyword&term="+ URLEncoder.encode(searchQuery, "UTF-8");
     HtmlPage page = client.getPage(searchUrl);
 
-    public static List<BookSearchResuls> searchBooks(BookSearchRequest result){
+    /**
+     * searchBooks() method
+     * searches for books 
+     * @param result
+     * @return the results (list of books) of the search
+     */
+    public List<BookSearchResult> searchBooks(BookSearchRequest result){
         List<BookSearchResult>results = null;
-
+        return results;
     }
   }
 }
