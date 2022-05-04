@@ -82,6 +82,16 @@ public class BookSearchCLI {
         return promptInput("ISBN");
     }
 
+    public static BookSearchResult selectBookSearchResult(List<BookSearchResult> result){
+        BookSearchResult b = new BookSearchResult();
+        return b;
+    }
+
+    public static void geoSearchLibraries(BookSearchResult selectedResult){
+        // call Yash's search method
+
+    }
+
     /**
      * displayMenu() method
      * displays the menu options for the user to choose from
@@ -112,19 +122,23 @@ public class BookSearchCLI {
             item = displayMenu();
 
             List<BookSearchResult>results = null;
+            BookSearchResult selectedResult = null;
 
             switch(item){
                 case 1:
                     System.out.println("You chose to search by title.");
                     results = BookSearchCLI.searchByTitle(BookSearchCLI.inputTitle());
+                    selectedResult = selectBookSearchResult(results);
                     break;
                 case 2:
                     System.out.println("You chose to search by author.");
                     results = BookSearchCLI.searchByAuthor(BookSearchCLI.inputAuthor());
+                    selectedResult = selectBookSearchResult(results);
                     break;
                 case 3:
                     System.out.println("You chose to search by ISBN.");
                     results = BookSearchCLI.searchByISBN(BookSearchCLI.inputISBN());
+                    selectedResult = selectBookSearchResult(results);
                     break;
                 case 0: 
                     System.out.println("You chose to exit.");
@@ -133,6 +147,7 @@ public class BookSearchCLI {
                 default:
                     System.out.println("You did not select a correct option. Please try again.");
             }
+            BookSearchCLI.geoSearchLibraries(selectedResult);
         } while (!exit);
         System.out.println("Goodbye.");
     }
