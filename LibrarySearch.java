@@ -31,7 +31,7 @@ public class LibrarySearch {
      * @param result
      * @return the results (list of books) of the search
      */
-    public List<BookSearchResult> searchBooks(BookSearchRequest result){
+    public List<BookSearchResult> searchBooks(BookSearchRequest request){
         List<BookSearchResult>results = null;
         return results;
     }
