@@ -1,3 +1,3 @@
 public enum SearchLanguage {
-    ALL, ARABIC, CHINESE, ENGLISH, FRENCH, GERMAN, ITALIAN, JAPANESE, KOREAN, SPANISH, TAMIL, URDU, VIETNAMESE;
+    All, Arabic, Chinese, English, French, German, Italian, Japanese, Korean, Spanish, Tamil, Urdu, Vietnamese;
 }
