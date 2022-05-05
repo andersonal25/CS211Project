@@ -60,7 +60,7 @@ public class BookSearchCLI {
         if(i < 1 || i > results.size()){
             return null;
         } 
-        return results.get(i);
+        return results.get(i-1);
     }
 
     /**
@@ -99,7 +99,7 @@ public class BookSearchCLI {
         if(i < searchBy.size() || i > searchBy.size()){
             return SearchBy.Any;
         } 
-        return searchBy.get(i);
+        return searchBy.get(i-1);
     }
 
     /**
@@ -128,7 +128,7 @@ public class BookSearchCLI {
         if(i < searchLanguage.size() || i > searchLanguage.size()){
             return SearchLanguage.English;
         } 
-        return searchLanguage.get(i);
+        return searchLanguage.get(i-1);
     }
 
     /**

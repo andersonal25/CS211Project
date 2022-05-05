@@ -36,6 +36,21 @@ public class LibrarySearch {
     public List<BookSearchResult> searchBooks(BookSearchRequest request){
         // TO DO: Add temporary canned results for testing
         List<BookSearchResult>results = new ArrayList<BookSearchResult>();
+        Book book1 = new Book("9780547249643", "Fiction", "George Orwell", "1984", "San Diego: Harcourt Brace Jovanovich");
+        Library library1 = new Library("City of Fairfax Regional Library");
+
+        Book book2 = new Book("9780452284241", "Fiction", "George Orwell", "Animal Farm", "New York : Harcourt");
+        Library library2 = new Library("Burke Centre Library");
+
+        List<Library>libraries = new ArrayList<Library>();
+        libraries.add(library1);
+        libraries.add(library2);
+
+        BookSearchResult bsr1 = new BookSearchResult(book1, libraries);
+        BookSearchResult bsr2 = new BookSearchResult(book2, libraries);
+
+        results.add(bsr1);
+        results.add(bsr2);
         return results;
     }
 }
