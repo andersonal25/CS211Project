@@ -102,39 +102,25 @@ public class BookSearchCLI {
      */
     public static void main(String[] args) {
         boolean exit = false;
-        SearchBy searchBy;
 
         do{
-            searchBy = selectSearchBy();
+            SearchBy searchBy = selectSearchBy();
+            SearchLanguage searchLanguage = selectLanguage();
+            String keywords = promptKeywords(searchBy);
+
+            if (keywords == null){
+                exit = true;
+            } else{
+                SearchFilter searchFilter = new SearchFilter(searchBy, keywords);
+                BookSearchCLI.geoSearchLibraries(selectedResult);
+            }
 
             List<BookSearchResult>results = null;
             BookSearchResult selectedResult = null;
 
             results = searchBooks(searchBy);
-            switch(item){
-                case 1:
-                    System.out.println("You chose to search by title.");
-                    results = BookSearchCLI.searchByTitle(BookSearchCLI.inputTitle());
-                    selectedResult = selectBookSearchResult(results);
-                    break;
-                case 2:
-                    System.out.println("You chose to search by author.");
-                    results = BookSearchCLI.searchByAuthor(BookSearchCLI.inputAuthor());
-                    selectedResult = selectBookSearchResult(results);
-                    break;
-                case 3:
-                    System.out.println("You chose to search by ISBN.");
-                    results = BookSearchCLI.searchByISBN(BookSearchCLI.inputISBN());
-                    selectedResult = selectBookSearchResult(results);
-                    break;
-                case 0: 
-                    System.out.println("You chose to exit.");
-                    exit = true;
-                    break;
-                default:
-                    System.out.println("You did not select a correct option. Please try again.");
-            }
-            BookSearchCLI.geoSearchLibraries(selectedResult);
+            
+
         } while (!exit);
         System.out.println("Goodbye.");
     }
