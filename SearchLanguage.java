@@ -1,6 +1,6 @@
 /**
  * SearchLanguage enum
- * defines fields for options available of the search by the user
+ * defines language in which keywords should be searched
  */
 public enum SearchLanguage {
     All, Arabic, Chinese, English, French, German, Italian, Japanese, Korean, Spanish;
