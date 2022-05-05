@@ -28,7 +28,7 @@ public class LibrarySearch {
     /**
      * searchBooks() method
      * searches for books 
-     * @param result
+     * @param request
      * @return the results (list of books) of the search
      */
     public List<BookSearchResult> searchBooks(BookSearchRequest request){
