@@ -33,7 +33,7 @@ public class BookSearchCLI {
         return keywords;
     }
 
-    public static BookSearchResult selectBookSearchResult(List<BookSearchResult> result){
+    public static BookSearchResult selectBookSearchResult(List<BookSearchResult> results){
         BookSearchResult b = new BookSearchResult();
         return b;
     }
@@ -110,8 +110,8 @@ public class BookSearchCLI {
 
             if (keywords != null){
                 SearchFilter searchFilter = new SearchFilter(searchBy, keywords);
-                List<BookSearchResult>results = searchBooks(new BookSearchRequest(searchFilter));
-                BookSearchResult selectedResult = null;
+                List<BookSearchResult>results = searchBooks(new BookSearchRequest(searchFilter, searchLanguage));
+                BookSearchResult selectedResult = selectBookSearchResult(results);
                 BookSearchCLI.geoSearchLibraries(selectedResult);
             } else{
                 exit = true;
