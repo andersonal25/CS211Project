@@ -16,7 +16,7 @@ public class LibraryLocationSearch {
 		URL url = null;
 		BookSearchCLI booksearch = null;
 		String searchstring="";
-		searchstring = booksearch.inputTitle();
+		//searchstring = booksearch.inputTitle();
 		//try {
 			String surl="https://www.googleapis.com/customsearch/v1?key=AIzaSyCVvong3qOi6jqZogKFQn06owE4njGCVJY&cx=013036536707430787589:_pqjad5hr1a"
 					+ "&safe=active&q='Fairfax+County+public+library+"+searchstring.replace(' ', '+')+"'&alt=json";
