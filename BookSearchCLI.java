@@ -33,6 +33,12 @@ public class BookSearchCLI {
         return keywords;
     }
 
+    /**
+     * selectBookSearchResult() method
+     * 
+     * @param results
+     * @return
+     */
     public static BookSearchResult selectBookSearchResult(List<BookSearchResult> results){
 
         int i = 1;
@@ -57,6 +63,10 @@ public class BookSearchCLI {
         return results.get(i);
     }
 
+    /**
+     * geoSearchLibraries() method
+     * @param selectedResult
+     */
     public static void geoSearchLibraries(BookSearchResult selectedResult){
         // call Yash's search method
 
@@ -91,6 +101,11 @@ public class BookSearchCLI {
         return searchBy.get(i);
     }
 
+    /**
+     * selectLanguage() method
+     * 
+     * @return
+     */
     public static SearchLanguage selectLanguage(){
         ArrayList<SearchLanguage>searchLanguage = new ArrayList<>();
 
