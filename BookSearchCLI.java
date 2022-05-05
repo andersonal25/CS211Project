@@ -13,13 +13,10 @@ public class BookSearchCLI {
      * @param title
      * @return search results
      */
-    public static List<BookSearchResult>searchBooks(SearchBy searchBy){
-        ArrayList<BookSearchResult>results = new ArrayList<>();
-        
+    public static List<BookSearchResult>searchBooks(BookSearchRequest bookSearchRequest){
+        // TO DO: add optional url command line argument to override LibrarySearch default url
         LibrarySearch searcher = new LibrarySearch();
-        BookSearchRequest bookSearchRequest = new BookSearchRequest(searchBy);
-        searcher.searchBooks(bookSearchRequest);
-        return results;
+        return searcher.searchBooks(bookSearchRequest);
     }
 
     /**
@@ -28,12 +25,12 @@ public class BookSearchCLI {
      * @param field
      * @return the String
      */
-    public static String promptInput(SearchBy field){
+    public static String promptKeywords(SearchBy field){
         Scanner input = new Scanner(System.in);
-        System.out.println("Please enter the " + field + "to search: ");
-        String searchCriteria = input.nextLine();
+        System.out.println("Please enter the keywords to search the " + field + "  field: ");
+        String keywords = input.nextLine();
         input.close();
-        return searchCriteria;
+        return keywords;
     }
 
     public static BookSearchResult selectBookSearchResult(List<BookSearchResult> result){
