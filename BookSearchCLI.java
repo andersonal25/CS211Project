@@ -27,7 +27,7 @@ public class BookSearchCLI {
      */
     public static String promptKeywords(SearchBy field){
         Scanner input = new Scanner(System.in);
-        System.out.println("Please enter the keywords to search the " + field + "  field: ");
+        System.out.println("Please enter the keywords to search the " + field + " field: ");
         String keywords = input.nextLine();
         input.close();
         return keywords;
@@ -70,7 +70,6 @@ public class BookSearchCLI {
     public static void geoSearchLibraries(BookSearchResult selectedResult){
         // call Yash's search method
         System.out.println(selectedResult.toString());
-
     }
 
     /**
@@ -140,7 +139,8 @@ public class BookSearchCLI {
 
         do{
             SearchBy searchBy = selectSearchBy();
-            SearchLanguage searchLanguage = selectLanguage();
+            //SearchLanguage searchLanguage = selectLanguage();
+            SearchLanguage searchLanguage = SearchLanguage.All;
             String keywords = promptKeywords(searchBy);
 
             if (keywords != null){
