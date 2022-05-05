@@ -1,9 +1,9 @@
+import java.util.ArrayList;
 import java.util.List;
 /**
  * LibrarySearch class
  */
 public class LibrarySearch {
-
 
     /**
      * LibrarySearch() no arg constructor
@@ -12,8 +12,8 @@ public class LibrarySearch {
     public LibrarySearch(){
         
     }
-
-    // Define the search term
+    /**
+     * // Define the search term
     String searchQuery = "harry potter and the goblet of fire";
 
     // Instantiate the client
@@ -24,6 +24,8 @@ public class LibrarySearch {
     // Set up the URL with the search term and send the request
     String searchUrl = "https://fcplcat.fairfaxcounty.gov/search/searchresults.aspx?ctx=1.1033.0.0.1&type=Keyword&term="+ URLEncoder.encode(searchQuery, "UTF-8");
     HtmlPage page = client.getPage(searchUrl);
+     */
+    
 
     /**
      * searchBooks() method
@@ -32,8 +34,8 @@ public class LibrarySearch {
      * @return the results (list of books) of the search
      */
     public List<BookSearchResult> searchBooks(BookSearchRequest request){
-        List<BookSearchResult>results = null;
+        // TO DO: Add temporary canned results for testing
+        List<BookSearchResult>results = new ArrayList<BookSearchResult>();
         return results;
     }
-  }
 }
