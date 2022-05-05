@@ -61,6 +61,7 @@ public class BookSearchCLI {
             System.out.println(i + ". " + s);
             i++;
         }
+        System.out.println("The default field to search is " + SearchBy.Any);
         System.out.println("Select a field number above to search by.");
 
 
@@ -84,6 +85,7 @@ public class BookSearchCLI {
             System.out.println(i + ". " + s);
             i++;
         }
+        System.out.println("The default search language is " + SearchLanguage.English);
         System.out.println("Select a language above to use to search keywords.");
 
 
