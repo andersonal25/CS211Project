@@ -51,7 +51,7 @@ public class BookSearchCLI {
      * displays the menu options for the user to choose from
      * @return the item the user chooses
      */
-    public static SearchBy displayMenu(){
+    public static SearchBy selectSearchBy(){
         ArrayList<SearchBy>searchBy = new ArrayList<>();
 
         int i = 1;
@@ -61,16 +61,40 @@ public class BookSearchCLI {
             System.out.println(i + ". " + s);
             i++;
         }
-        System.out.println("Selected a menu item number from the options listed above.");
+        System.out.println("Select a field number above to search by.");
+
 
         Scanner input = new Scanner(System.in);
         i = input.nextInt();
         input.close();
 
-        if(i > searchBy.size()){
-            return null;
+        if(i < searchBy.size() || i > searchBy.size()){
+            return SearchBy.Any;
         } 
         return searchBy.get(i);
+    }
+
+    public static SearchLanguage selectLanguage(){
+        ArrayList<SearchLanguage>searchLanguage = new ArrayList<>();
+
+        int i = 1;
+        System.out.println("Search By Language:");
+        for(SearchLanguage s: SearchLanguage.values()){
+            searchLanguage.add(s);
+            System.out.println(i + ". " + s);
+            i++;
+        }
+        System.out.println("Select a language above to use to search keywords.");
+
+
+        Scanner input = new Scanner(System.in);
+        i = input.nextInt();
+        input.close();
+
+        if(i < searchLanguage.size() || i > searchLanguage.size()){
+            return SearchLanguage.English;
+        } 
+        return searchLanguage.get(i);
     }
 
     /**
@@ -82,7 +106,7 @@ public class BookSearchCLI {
         SearchBy searchBy;
 
         do{
-            searchBy = displayMenu();
+            searchBy = selectSearchBy();
 
             List<BookSearchResult>results = null;
             BookSearchResult selectedResult = null;
