@@ -34,8 +34,27 @@ public class BookSearchCLI {
     }
 
     public static BookSearchResult selectBookSearchResult(List<BookSearchResult> results){
-        BookSearchResult b = new BookSearchResult();
-        return b;
+
+        int i = 1;
+        System.out.println("Please select a book number: ");
+        for(BookSearchResult r: results){
+            System.out.println(i + ". " + r.getBook().toString());
+            i++;
+        }
+
+        if (i < 1){
+            return null;
+        }
+        System.out.println("Select 0 to exit.");
+        
+        Scanner input = new Scanner(System.in);
+        i = input.nextInt();
+        input.close();
+
+        if(i < 1 || i > results.size()){
+            return null;
+        } 
+        return results.get(i);
     }
 
     public static void geoSearchLibraries(BookSearchResult selectedResult){
