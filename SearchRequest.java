@@ -3,7 +3,6 @@
  * represents user's request to be sent to the library search site
  */
 public abstract class SearchRequest {
-    private String searchTerm; // user's search keyword/term
     private int maxResults; // max results of user's search
     private SearchLanguage language; // language user wants of the searchTerm to be searched
 
@@ -11,8 +10,8 @@ public abstract class SearchRequest {
      * SearchRequest() one arg constructor
      * @param searchTerm user's search keyword/term
      */
-    public SearchRequest(String searchTerm){
-        this(searchTerm, 10, SearchLanguage.ALL);
+    public SearchRequest(){
+        this(10, SearchLanguage.All);
     }
 
     /**
@@ -21,28 +20,9 @@ public abstract class SearchRequest {
      * @param maxResults max results of user's search
      * @param language language user wants of the searchTerm to be searched
      */
-    public SearchRequest(String searchTerm, int maxResults, SearchLanguage language){
-        setSearchTerm(searchTerm);
+    public SearchRequest(int maxResults, SearchLanguage language){
         setMaxResults(maxResults);
         setLanguage(language);
-    }
-
-    /**
-     * setSearchTerm() method
-     * a setter method for searchTerm
-     * @param searchTerm
-     */
-    public void setSearchTerm(String searchTerm){
-        this.searchTerm = searchTerm;
-    }
-
-    /**
-     * getSearchTerm() method
-     * a getter method for searchTerm
-     * @return searchTerm
-     */
-    public String getSearchTerm(){
-        return this.searchTerm;
     }
 
     /**
@@ -86,6 +66,6 @@ public abstract class SearchRequest {
      * @return concatenated string of member variables/user's search request
      */
     @Override public String toString(){
-        return "Search term: " + getSearchTerm() + ", Max Results: " + Integer.toString(getMaxResults()) + ", Language: " + getLanguage();
+        return "Max Results: " + Integer.toString(getMaxResults()) + ", Language: " + getLanguage();
     }
 }

@@ -3,8 +3,8 @@
  * encapsulates the search criteria
  */
 public class SearchFilter {
-    SearchBy searchBy; // category of the search from SearchBy enum
-    String keywords; // keywords entered for the search
+    private SearchBy searchBy; // category of the search from SearchBy enum
+    private String keywords; // keywords entered for the search
 
     /**
      * SearchFilter() constructor
