@@ -1,3 +1,3 @@
 public enum SearchBy {
-    ANY, TITLE, AUTHOR, SUBJECT, GENERAL_NOTES, PUBLISHER, GENRE, SERIES, ISBN, ISSN, LCCN, PUBLISHER_NO;
+    Any, Title, Author, Subject, General_Notes, Publisher, Genre, Series, ISBN, ISSN, LCCN, Publisher_No;
 }
