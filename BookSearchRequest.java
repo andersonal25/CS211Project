@@ -14,6 +14,10 @@ public class BookSearchRequest extends SearchRequest {
         setSearchTerm(searchTerm);
     }
 
+    public BookSearchRequest(SearchFilter searchTerm, SearchLanguage language){
+        this(searchTerm, 10, language);
+    }
+
     /**
      * BookSearchRequest() three arg constructor
      * sets the member variable searchTerm and calls the super class constructor
