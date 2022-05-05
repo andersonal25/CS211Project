@@ -7,18 +7,18 @@ import java.util.ArrayList;
  * command line interface for the user to search for books at various libraries
  */
 public class BookSearchCLI {
-
     /**
-     * searchByTitle() class
+     * searchByTitle() class 
      * for if user wants to search by title
      * @param title
      * @return search results
      */
     public static List<BookSearchResult> searchByTitle(String title){
         ArrayList<BookSearchResult>results = new ArrayList<>();
+        
         LibrarySearch searcher = new LibrarySearch();
-        searcher.searchBooks();
-        //BookSearchRequest bookSearchRequest = new BookSearchRequest(title);
+        BookSearchRequest bookSearchRequest = new BookSearchRequest(title);
+        searcher.searchBooks(bookSearchRequest);
         return results;
     }
 
