@@ -69,6 +69,7 @@ public class BookSearchCLI {
      */
     public static void geoSearchLibraries(BookSearchResult selectedResult){
         // call Yash's search method
+        System.out.println(selectedResult.toString());
 
     }
 
