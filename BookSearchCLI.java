@@ -24,6 +24,7 @@ public class BookSearchCLI {
      * prompts user to enter field param
      * @param field
      * @return the String
+     *
      */
     public static String promptKeywords(SearchBy field){
         Scanner input = new Scanner(System.in);
@@ -32,6 +33,7 @@ public class BookSearchCLI {
         input.close();
         return keywords;
     }
+     
 
     /**
      * selectBookSearchResult() method
@@ -95,9 +97,9 @@ public class BookSearchCLI {
         i = input.nextInt();
         input.close();
 
-        if(i < searchBy.size() || i > searchBy.size()){
+        if(i < 0 || i > searchBy.size()){
             return SearchBy.Any;
-        } 
+        }
         return searchBy.get(i-1);
     }
 
@@ -124,7 +126,7 @@ public class BookSearchCLI {
         i = input.nextInt();
         input.close();
 
-        if(i < searchLanguage.size() || i > searchLanguage.size()){
+        if(i < 0 || i > searchLanguage.size()){
             return SearchLanguage.English;
         } 
         return searchLanguage.get(i-1);
