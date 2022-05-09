@@ -19,6 +19,33 @@ public class BookSearchCLI {
         return searcher.searchBooks(bookSearchRequest);
     }
 
+    private static String promptInt(Scanner input, int maxSize){
+        maxSize = 4;
+        int i = 1;
+
+        System.out.println("Select 0 to exit.");
+        boolean over = false;
+
+        do{
+            String in = input.nextLine();
+            try{
+                i = Integer.parseInt(in);
+                if (i >= 0 && i <= maxSize){
+                    over = true;
+                }
+            } catch (NumberFormatException e){
+                System.out.println("Try Again! Please enter 0 to exit or an integer between 1 and " + maxSize);
+
+            }
+        } while (!over);
+        System.out.println("i= " + i);
+        System.out.println("Please enter the keywords to search the field");
+        input = new Scanner(System.in);
+        String keywords = input.nextLine();
+        input.close();
+        return "keywords= " + keywords; 
+    }
+
     /**
      * promptInput() method
      * prompts user to enter field param
@@ -137,6 +164,8 @@ public class BookSearchCLI {
      * @param args
      */
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
         boolean exit = false;
 
         do{
@@ -155,5 +184,6 @@ public class BookSearchCLI {
             }
         } while (!exit);
         System.out.println("Goodbye.");
+        input.close();
     }
 }
