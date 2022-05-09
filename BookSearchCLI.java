@@ -60,7 +60,7 @@ public class BookSearchCLI {
      * @param results
      * @return
      */
-    public static BookSearchResult selectBookSearchResult(List<BookSearchResult> results){
+    public static BookSearchResult selectBookSearchResult(List<BookSearchResult> results, Scanner input){
 
         int i = 1;
         System.out.println("Please select a book number: ");
@@ -74,9 +74,8 @@ public class BookSearchCLI {
         }
         System.out.println("Select 0 to exit.");
         
-        Scanner input = new Scanner(System.in);
-        i = input.nextInt();
-        input.close();
+
+        i = promptInt(input, results.size());
 
         if(i < 1 || i > results.size()){
             return null;
@@ -114,7 +113,7 @@ public class BookSearchCLI {
         i = promptInt(input, searchBy.size());
 
         if(i == 0){
-            return SearchBy.Any;
+            return null;
         }
         return searchBy.get(i-1);
     }
@@ -140,7 +139,7 @@ public class BookSearchCLI {
         i = promptInt(input, searchLanguage.size());
 
         if (i == 0){
-            return SearchLanguage.English;
+            return null;
         } 
         return searchLanguage.get(i-1);
     }
@@ -156,7 +155,15 @@ public class BookSearchCLI {
 
         do{
             SearchBy searchBy = selectSearchBy(input);
+            if (searchBy == null){
+                exit = true;
+                break;
+            }
             SearchLanguage searchLanguage = selectLanguage(input);
+            if (searchLanguage == null){
+                exit = true;
+                break;
+            }
             String keywords = promptKeywords(searchBy);
 
             if (keywords != null){
