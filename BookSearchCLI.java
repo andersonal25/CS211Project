@@ -19,7 +19,7 @@ public class BookSearchCLI {
         return searcher.searchBooks(bookSearchRequest);
     }
 
-    private static String promptInt(Scanner input, int maxSize){
+    private static int promptInt(Scanner input, int maxSize){
         maxSize = 4;
         int i = 1;
 
@@ -38,12 +38,7 @@ public class BookSearchCLI {
 
             }
         } while (!over);
-        System.out.println("i= " + i);
-        System.out.println("Please enter the keywords to search the field");
-        input = new Scanner(System.in);
-        String keywords = input.nextLine();
-        input.close();
-        return "keywords= " + keywords; 
+        return i;
     }
 
     /**
@@ -117,7 +112,7 @@ public class BookSearchCLI {
         System.out.println("The default field to search is " + SearchBy.Any);
         System.out.println("Select a field number above to search by.");
 
-        i = input.nextInt();
+        i = promptInt(input, searchBy.size());
 
         if(i < 0 || i > searchBy.size()){
             return SearchBy.Any;
@@ -143,7 +138,7 @@ public class BookSearchCLI {
         System.out.println("The default search language is " + SearchLanguage.English);
         System.out.println("Select a language above to use to search keywords.");
 
-        i = input.nextInt();
+        i = promptInt(input, searchLanguage.size());
 
         if(i < 0 || i > searchLanguage.size()){
             return SearchLanguage.English;
