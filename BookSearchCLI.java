@@ -20,7 +20,6 @@ public class BookSearchCLI {
     }
 
     private static int promptInt(Scanner input, int maxSize){
-        maxSize = 4;
         int i = 1;
 
         System.out.println("Select 0 to exit.");
@@ -114,7 +113,7 @@ public class BookSearchCLI {
 
         i = promptInt(input, searchBy.size());
 
-        if(i < 0 || i > searchBy.size()){
+        if(i == 0){
             return SearchBy.Any;
         }
         return searchBy.get(i-1);
@@ -140,7 +139,7 @@ public class BookSearchCLI {
 
         i = promptInt(input, searchLanguage.size());
 
-        if(i < 0 || i > searchLanguage.size()){
+        if (i == 0){
             return SearchLanguage.English;
         } 
         return searchLanguage.get(i-1);
@@ -156,9 +155,8 @@ public class BookSearchCLI {
         boolean exit = false;
 
         do{
-            SearchBy searchBy = selectSearchBy();
-            //SearchLanguage searchLanguage = selectLanguage();
-            SearchLanguage searchLanguage = SearchLanguage.All;
+            SearchBy searchBy = selectSearchBy(input);
+            SearchLanguage searchLanguage = selectLanguage(input);
             String keywords = promptKeywords(searchBy);
 
             if (keywords != null){
