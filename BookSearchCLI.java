@@ -53,11 +53,9 @@ public class BookSearchCLI {
      * @return the String
      *
      */
-    public static String promptKeywords(SearchBy field){
-        Scanner input = new Scanner(System.in);
+    public static String promptKeywords(SearchBy field, Scanner input){
         System.out.println("Please enter the keywords to search the " + field + " field: ");
         String keywords = input.nextLine();
-        input.close();
         return keywords;
     }
      
@@ -106,7 +104,7 @@ public class BookSearchCLI {
      * displays the menu options for the user to choose from
      * @return the item the user chooses
      */
-    public static SearchBy selectSearchBy(){
+    public static SearchBy selectSearchBy(Scanner input){
         ArrayList<SearchBy>searchBy = new ArrayList<>();
 
         int i = 1;
@@ -119,10 +117,7 @@ public class BookSearchCLI {
         System.out.println("The default field to search is " + SearchBy.Any);
         System.out.println("Select a field number above to search by.");
 
-
-        Scanner input = new Scanner(System.in);
         i = input.nextInt();
-        input.close();
 
         if(i < 0 || i > searchBy.size()){
             return SearchBy.Any;
@@ -135,7 +130,7 @@ public class BookSearchCLI {
      * 
      * @return
      */
-    public static SearchLanguage selectLanguage(){
+    public static SearchLanguage selectLanguage(Scanner input){
         ArrayList<SearchLanguage>searchLanguage = new ArrayList<>();
 
         int i = 1;
@@ -148,10 +143,7 @@ public class BookSearchCLI {
         System.out.println("The default search language is " + SearchLanguage.English);
         System.out.println("Select a language above to use to search keywords.");
 
-
-        Scanner input = new Scanner(System.in);
         i = input.nextInt();
-        input.close();
 
         if(i < 0 || i > searchLanguage.size()){
             return SearchLanguage.English;
