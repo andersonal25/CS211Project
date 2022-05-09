@@ -164,18 +164,18 @@ public class BookSearchCLI {
                 exit = true;
                 break;
             }
-            String keywords = promptKeywords(searchBy);
+            String keywords = promptKeywords(searchBy, input);
 
             if (keywords != null){
                 SearchFilter searchFilter = new SearchFilter(searchBy, keywords);
                 List<BookSearchResult>results = searchBooks(new BookSearchRequest(searchFilter, searchLanguage));
-                BookSearchResult selectedResult = selectBookSearchResult(results);
+                BookSearchResult selectedResult = selectBookSearchResult(results, input);
                 BookSearchCLI.geoSearchLibraries(selectedResult);
             } else{
                 exit = true;
             }
         } while (!exit);
         System.out.println("Goodbye.");
-        input.close();
+        input.close(); 
     }
 }
