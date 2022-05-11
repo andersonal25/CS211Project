@@ -47,4 +47,12 @@ public class BookSearchRequest extends SearchRequest {
     public SearchFilter getSearchTerm(){
         return this.searchTerm;
     }
+
+    public String buildRequestParams(){
+        SearchFilter filter = getSearchTerm();
+        String keywords = filter.getKeywords();
+        String searchBy = filter.getSearchBy().toString().toUpperCase().substring(0, 2);
+
+        return "type=Keyword&term="  + keywords +  "&by=" + searchBy + "&sort=RELEVANCE&limit=TOM=bks";
+    }
 }
