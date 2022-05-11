@@ -1,7 +1,10 @@
+import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.net.URL;
+import java.net.HttpURLConnection;
 
 /**
  * LibrarySearch class
@@ -26,22 +29,30 @@ public class LibrarySearch {
         setURL(url);
     }
 
-    public void setURL(String url){
-        this.url = new URL(url);
+    /**
+     * setURL() method
+     * a setter method for url
+     * @param url
+     * @throws MalformedURLException
+     */
+    public void setURL(String url) throws MalformedURLException{
+        try{
+            this.url = new URL(url);
+        }  catch(IOException e){
+            e.printStackTrace;
+        }
+        
     }
     
+    /**
+     * getURL() method
+     * a getter method for url
+     * @return url
+     */
     public URL getURL(){
         return this.url;
     }
 
-
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("GET");
-    }
-
-    public static getParamString(Map<String, String>){
-
-    }
 
     /**
      * searchBooks() method
@@ -50,6 +61,10 @@ public class LibrarySearch {
      * @return the results (list of books) of the search
      */
     public List<BookSearchResult> searchBooks(BookSearchRequest request){
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("GET");
+
+
         // TO DO: Add temporary canned results for testing
         List<BookSearchResult>results = new ArrayList<BookSearchResult>();
         Book book1 = new Book("9780547249643", "Fiction", "George Orwell", "1984", "San Diego: Harcourt Brace Jovanovich");
