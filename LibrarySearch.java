@@ -35,11 +35,11 @@ public class LibrarySearch {
      * @param url
      * @throws MalformedURLException
      */
-    public void setURL(String url) throws MalformedURLException{
+    public void setURL(String url) {
         try{
             this.url = new URL(url);
-        }  catch(IOException e){
-            e.printStackTrace;
+        }  catch(MalformedURLException e){
+            e.printStackTrace();
         }
         
     }
