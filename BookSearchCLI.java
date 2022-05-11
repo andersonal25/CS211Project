@@ -60,7 +60,6 @@ public class BookSearchCLI {
      * @return
      */
     public static BookSearchResult selectBookSearchResult(List<BookSearchResult> results, Scanner input){
-
         int i = 1;
         System.out.println("Please select a book number: ");
         for(BookSearchResult r: results){
@@ -71,8 +70,6 @@ public class BookSearchCLI {
         if (i < 1){
             return null;
         }
-        System.out.println("Select 0 to exit.");
-        
 
         i = promptInt(input, results.size());
 
@@ -87,8 +84,10 @@ public class BookSearchCLI {
      * @param selectedResult
      */
     public static void geoSearchLibraries(BookSearchResult selectedResult){
-        // call Yash's search method
-        System.out.println(selectedResult.toString());
+        // TO DO integrate with Yash's method
+        if (selectedResult != null){
+            System.out.println(selectedResult.toString());
+        }
     }
 
     /**

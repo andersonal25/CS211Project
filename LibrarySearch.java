@@ -87,10 +87,13 @@ public class LibrarySearch {
 			    br = new BufferedReader(new InputStreamReader((conn.getErrorStream())));
 		    }
             String output;
-            System.out.println("DEBUG INFO BELOW: RESPONSE FROM LIBRARYSEARCH");
+            System.out.println("***************************************************");
+            System.out.println("BEGIN DEBUG INFO BELOW: RESPONSE FROM LIBRARYSEARCH");
             while ((output = br.readLine()) != null) {
 			    System.out.println(output);
 			}
+            System.out.println("END DEBUG INFO RESPONSE FROM LIBRARYSEARCH");
+            System.out.println("***************************************************");
         } catch (IOException e){
             e.printStackTrace();
         conn.disconnect();
