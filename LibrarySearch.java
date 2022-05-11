@@ -79,7 +79,7 @@ public class LibrarySearch {
             out.close();
         } catch(IOException e){
             e.printStackTrace();
-
+        }
         BufferedReader br = null;
 			int statusCode = conn.getResponseCode();
 
@@ -90,7 +90,7 @@ public class LibrarySearch {
 			    br = new BufferedReader(new InputStreamReader((conn.getErrorStream())));
 		    }
         } catch (IOException e){
-        e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
