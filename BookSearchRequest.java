@@ -1,3 +1,6 @@
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 /**
  * BookSearchRequest class
  * encapsulstes the book search request parameters
@@ -52,7 +55,11 @@ public class BookSearchRequest extends SearchRequest {
         SearchFilter filter = getSearchTerm();
         String keywords = filter.getKeywords();
         String searchBy = filter.getSearchBy().toString().toUpperCase().substring(0, 2);
-
-        return "type=Keyword&term="  + keywords +  "&by=" + searchBy + "&sort=RELEVANCE&limit=TOM=bks";
+        String requestParams = "type=Keyword&term="  + keywords +  "&by=" + searchBy + "&sort=RELEVANCE&limit=TOM=bks";
+        try{
+            return URLEncoder.encode(requestParams, "UTF-8");
+        } catch (UnsupportedEncodingException e){
+            return requestParams;
+        }
     }
 }

@@ -65,11 +65,14 @@ public class LibrarySearch {
         try{
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
-
+            con.setDoOutput(true);
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            out.writeBytes(request.buildRequestParams());
+            out.flush();
+            out.close();
         } catch(IOException e){
             e.printStackTrace();
         }
-
 
         // TO DO: Add temporary canned results for testing
         List<BookSearchResult>results = new ArrayList<BookSearchResult>();
