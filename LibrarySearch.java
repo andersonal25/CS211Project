@@ -3,8 +3,13 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.ButtonGroup;
+
 import java.net.URL;
 import java.io.DataOutputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 /**
  * LibrarySearch class
@@ -61,9 +66,11 @@ public class LibrarySearch {
      * @return the results (list of books) of the search
      */
     public List<BookSearchResult> searchBooks(BookSearchRequest request){
+        
         URL url = getURL();
-        try{
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        HttpURLConnection conn;
+        try{ 
+            conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setDoOutput(true);
             DataOutputStream out = new DataOutputStream(conn.getOutputStream());
@@ -72,7 +79,20 @@ public class LibrarySearch {
             out.close();
         } catch(IOException e){
             e.printStackTrace();
+
+        BufferedReader br = null;
+			int statusCode = conn.getResponseCode();
+
+        try{
+		    if (statusCode >= 200 && statusCode < 400) {
+			    br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            } else{
+			    br = new BufferedReader(new InputStreamReader((conn.getErrorStream())));
+		    }
+        } catch (IOException e){
+        e.printStackTrace();
         }
+    }
 
         // TO DO: Add temporary canned results for testing
         List<BookSearchResult>results = new ArrayList<BookSearchResult>();
