@@ -61,8 +61,14 @@ public class LibrarySearch {
      * @return the results (list of books) of the search
      */
     public List<BookSearchResult> searchBooks(BookSearchRequest request){
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("GET");
+        URL url = getURL();
+        try{
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+
+        } catch(IOException e){
+            e.printStackTrace();
+        }
 
 
         // TO DO: Add temporary canned results for testing
