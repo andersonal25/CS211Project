@@ -68,7 +68,7 @@ public class LibrarySearch {
     public List<BookSearchResult> searchBooks(BookSearchRequest request){
         
         URL url = getURL();
-        HttpURLConnection conn;
+        HttpURLConnection conn = null;
         try{ 
             conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -80,10 +80,11 @@ public class LibrarySearch {
         } catch(IOException e){
             e.printStackTrace();
         }
-        BufferedReader br = null;
-			int statusCode = conn.getResponseCode();
 
         try{
+            BufferedReader br = null;
+			int statusCode = conn.getResponseCode();
+            
 		    if (statusCode >= 200 && statusCode < 400) {
 			    br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
             } else{
@@ -92,7 +93,7 @@ public class LibrarySearch {
         } catch (IOException e){
             e.printStackTrace();
         }
-    }
+
 
         // TO DO: Add temporary canned results for testing
         List<BookSearchResult>results = new ArrayList<BookSearchResult>();
