@@ -84,14 +84,20 @@ public class LibrarySearch {
         try{
             BufferedReader br = null;
 			int statusCode = conn.getResponseCode();
-            
+
 		    if (statusCode >= 200 && statusCode < 400) {
 			    br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
             } else{
 			    br = new BufferedReader(new InputStreamReader((conn.getErrorStream())));
 		    }
+            String output;
+            System.out.println("DEBUG INFO BELOW: RESPONSE FROM LIBRARYSEARCH");
+            while ((output = br.readLine()) != null) {
+			    System.out.println(output);
+			}
         } catch (IOException e){
             e.printStackTrace();
+        conn.disconnect();
         }
 
 
