@@ -4,7 +4,7 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.net.URL;
-import java.net.HttpURLConnection;
+import java.io.DataOutputStream;
 
 /**
  * LibrarySearch class
@@ -65,8 +65,8 @@ public class LibrarySearch {
         try{
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
-            con.setDoOutput(true);
-            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            conn.setDoOutput(true);
+            DataOutputStream out = new DataOutputStream(conn.getOutputStream());
             out.writeBytes(request.buildRequestParams());
             out.flush();
             out.close();
