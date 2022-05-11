@@ -3,9 +3,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.ButtonGroup;
-
 import java.net.URL;
 import java.io.DataOutputStream;
 import java.io.BufferedReader;
@@ -58,7 +55,6 @@ public class LibrarySearch {
         return this.url;
     }
 
-
     /**
      * searchBooks() method
      * searches for books 
@@ -100,8 +96,6 @@ public class LibrarySearch {
         conn.disconnect();
         }
 
-
-        // TO DO: Add temporary canned results for testing
         List<BookSearchResult>results = new ArrayList<BookSearchResult>();
         Book book1 = new Book("9780547249643", "Fiction", "George Orwell", "1984", "San Diego: Harcourt Brace Jovanovich");
         Library library1 = new Library("City of Fairfax Regional Library");

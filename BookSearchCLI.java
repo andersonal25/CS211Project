@@ -52,11 +52,10 @@ public class BookSearchCLI {
         String keywords = input.nextLine();
         return keywords;
     }
-     
 
     /**
      * selectBookSearchResult() method
-     * 
+     * prompt user for the book to search the nearest libraries
      * @param results
      * @return
      */
@@ -120,7 +119,7 @@ public class BookSearchCLI {
 
     /**
      * selectLanguage() method
-     * 
+     * select the language that the keywords should be searched
      * @return
      */
     public static SearchLanguage selectLanguage(Scanner input){
